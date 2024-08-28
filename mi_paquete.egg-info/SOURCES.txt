@@ -1,0 +1,9 @@
+README.md
+setup.py
+entities/Article.py
+entities/Client.py
+entities/__init__.py
+mi_paquete.egg-info/PKG-INFO
+mi_paquete.egg-info/SOURCES.txt
+mi_paquete.egg-info/dependency_links.txt
+mi_paquete.egg-info/top_level.txt
