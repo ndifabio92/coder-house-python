@@ -1,3 +1,4 @@
+from django.urls import include
 """
 URL configuration for Saxmay_Admin project.
 
@@ -19,4 +20,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('activity/', include('Activity.urls')),
+    path('promotion/', include('Promotion.urls'))
 ]

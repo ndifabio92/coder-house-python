@@ -11,12 +11,9 @@ class Activity(models.Model):
     def __str__(self) -> str:
         return self.name
 
-    def create_activity_price(activity: 'Activity', price: Decimal) -> 'Activity':
-        if activity.is_active:
-            new_activity = ActivityPrice.objects.create(activity=activity, price=price)
-            return new_activity
-        else:
-            raise ValueError("La actividad no está activa.")
+    def create_activity_price(self, price: Decimal) -> 'Activity':
+        self.save()
+        ActivityPrice.objects.create(activity=self, price=price)
 
     def update_activity_price(activity: 'Activity', new_price: Decimal) -> 'Activity':
         if not activity.is_active:

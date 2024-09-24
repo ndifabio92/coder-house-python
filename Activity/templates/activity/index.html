@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for activity in activities %}
+    <tr>
+        <th scope="row">{{ activity.id}}</th>
+        <td>{{ activity.name|title }}</td>
+        <td>{{ activity.current_price }}</td>
+        <td>{{ activity.description|title }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'ActivityForm' %}">Crear Actividad</a>
+{% endblock content %}
