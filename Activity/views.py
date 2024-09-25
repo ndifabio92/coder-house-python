@@ -26,3 +26,17 @@ def create(req):
         form = ActivityForm()
     
     return render(req, 'activity/create.html', {'form': form})
+
+def price(req):
+    activities_prices = ActivityPrice.objects.all()
+    return render(req, "activity_price/index.html", {
+        "activities_prices": activities_prices
+    })
+
+def search(req):
+    search_value = req.GET.get('search_value')
+    results = Activity.find(search_value)
+
+    return render(req, "activity/index.html", {
+        "activities": results
+    })

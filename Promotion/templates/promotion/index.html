@@ -1,15 +1,30 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<ul>
-  {% for promotion in promotions %}
-    <li>
-        {{ promotion.first_activity|title }} - {{ promotion.second_activity|title }}
-    </li>
-    <li>{{ promotion.start_date|date:"F j, Y" }} - {{ promotion.end_date }}</li>
-    <li>
-        Estado: {% if promotion.is_active %} Activo {% else %} Dado de baja {% endif %}
-    </li>
-  {% empty %}
-    <li>No se encontraron promociones</li>
-  {% endfor %}
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Primera Actividad</th>
+      <th scope="col">Segunda Actividad</th>
+      <th scope="col">Fecha de Inicio</th>
+      <th scope="col">Fecha de Fin</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for promotion in promotions %}
+    <tr>
+        <th scope="row">{{ promotion.id }}</th>
+        <td>{{ promotion.first_activity|title }}</td>
+        <td>{{ promotion.second_activity|title }}</td>
+        <td>{{ promotion.start_date|date:"F j, Y" }}</td>
+        <td>{% if promotion.end_date %}
+            {{ promotion.end_date|date:"d/m/Y" }}
+            {% else %}
+                Sin fecha de fin
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'PromotionForm' %}">Crear Promocion</a>
 {% endblock content %}

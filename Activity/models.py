@@ -32,11 +32,11 @@ class Activity(models.Model):
     def find(search_params: str) -> List['Activity']:
         try:
             # Buscar por ID si el término es numérico
-            if search_term.isdigit():
-                return Activity.objects.filter(id=search_term)
+            if search_params.isdigit():
+                return Activity.objects.filter(id=search_params)
             
             # Buscar por nombre (ignorando mayúsculas/minúsculas)
-            return Activity.objects.filter(Q(name__iexact=search_term))
+            return Activity.objects.filter(Q(name__icontains=search_params))
         except Activity.DoesNotExist:
             return None
     
