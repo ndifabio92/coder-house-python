@@ -2,6 +2,20 @@
 
 Este es el proyecto final del curso de Python de Coder House. La aplicación se encarga de gestionar clientes y actividades dentro de un gimnasio.
 
+## Descripción de las Apps
+
+### Activity
+
+La aplicación Activity permite gestionar las actividades del gimnasio mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar). Cada actividad puede tener características como nombre, descripción, y precio.
+
+### Activity Price
+
+Se encarga de modificar los precios de las actividades, pero generando un historial de los mismo para no perder los precios viejos.
+
+### Promotion
+
+La aplicación Promotion permite establecer promociones que combinan dos actividades diferentes y asignan un nuevo precio para fomentar la inscripción. Esto es útil para ofrecer descuentos o paquetes especiales a los clientes.
+
 ## Tecnologías utilizadas
 
 - **Python** 3.9+
