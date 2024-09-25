@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+    <form action="{% url 'ActivityForm' %}" method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Crear</button>
+    </form>
+{% endblock content%}

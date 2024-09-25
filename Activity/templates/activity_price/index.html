@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Actividad</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Inicio</th>
+      <th scope="col">Fin</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for activity_price in activities_prices %}
+    <tr>
+        <th scope="row">{{ activity_price.id }}</th>
+        <td>{{ activity_price.activity|title }}</td>
+        <td>{{ activity_price.price }}</td>
+        <td>{{ promotion.start_date|date:"F j, Y" }}</td>
+        <td>{% if promotion.end_date %}
+            {{ promotion.end_date|date:"d/m/Y" }}
+            {% else %}
+                Sin fecha de fin
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% comment %} <a href="{% url 'ActivityForm' %}">Crear Actividad</a> {% endcomment %}
+{% endblock content %}
